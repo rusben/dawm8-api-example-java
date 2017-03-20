@@ -46,7 +46,7 @@
            <goalPrefix>glassfish</goalPrefix>
            <app>${project.build.directory}/${project.build.finalName}.war</app>
            <autoDelete>true</autoDelete>
-           <port>8080</port>
+           <port>8081</port>
            <contextRoot>test</contextRoot>
           </configuration>
          </plugin>

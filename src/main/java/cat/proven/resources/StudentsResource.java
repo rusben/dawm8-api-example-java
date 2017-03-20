@@ -65,10 +65,12 @@ public class StudentsResource {
             return Response.ok(s).build();
     }
     
-    @POST
+    @Path("{id}")
+    @PUT
     public Response addStudent(
             @FormParam("name") String name, 
-            @FormParam("lastname") String lastname){
+            @FormParam("lastname") String lastname,
+            @PathParam("id") int id){
         
         if(name == null || name.equals("")){
             ApplicationException ex = new ApplicationException("El paràmetre name és obligatori");
@@ -81,18 +83,19 @@ public class StudentsResource {
         }
             
         
-        Student s = new Student(0, name, lastname);
+        Student s = new Student(id, name, lastname);
         s = serviceStudent.add(s);
         
         return Response.ok(s).build();
     }
     
     @Path("{id}")
-    @PUT
+    @POST
     public Response modifyStudent(
-            @PathParam("id") int id,
+            
             @FormParam("name") String name, 
-            @FormParam("lastname") String lastname){
+            @FormParam("lastname") String lastname,
+            @PathParam("id") int id){
         
         Student s = serviceStudent.findById(id);
         if(s == null)

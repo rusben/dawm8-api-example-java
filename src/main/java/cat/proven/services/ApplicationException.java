@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author AMS
  */
 @XmlRootElement
-public class ApplicationException extends Exception {
+public class ApplicationException {
 
     private String message;
     private String exceptionType;
